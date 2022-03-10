@@ -28,15 +28,15 @@ import datetime
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# weights_path = 'media/weights/unet_model_28_02_22.h5'
-weights_path = 'media/weights/unet-weights-18.hdf5'
+weights_path = 'media/weights/unet_model_28_02_22.h5'
+# weights_path = 'media/weights/unet-weights-18.hdf5'
 image_shape = (256, 256, 3)
 pixel_class_map = {2: (0, 0, 0),  # background
                    1: (0, 128, 0),  # root
                    0: (128, 0, 0)  # necrosis
                    }
-# model = build_unet_model(image_shape)
-model = get_unet(3, image_shape)
+model = build_unet_model(image_shape)
+# model = get_unet(3, image_shape)
 model.load_weights(weights_path)
 # Create your views here.
 
