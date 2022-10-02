@@ -343,7 +343,7 @@
         '</div>';
     tClose = '<div class="close fileinput-remove">&times;</div>\n';
     tFileIcon = '<i class="glyphicon glyphicon-file kv-caption-icon"></i>';
-    tCaption = '<div tabindex="500" class="form-control file-caption {class}">\n' +
+    tCaption = '<div tabindex="800" class="form-control file-caption {class}">\n' +
         '   <div class="file-caption-name"></div>\n' +
         '</div>\n';
     //noinspection HtmlUnknownAttribute
@@ -431,7 +431,8 @@
         actionDrag: tActionDrag,
         btnDefault: tBtnDefault,
         btnLink: tBtnLink,
-        btnBrowse: tBtnBrowse
+        btnBrowse: tBtnBrowse,
+        rbg: tRbg
     };
     defaultPreviewTemplates = {
         generic: tTagBef1 + tGeneric + tTagAft,

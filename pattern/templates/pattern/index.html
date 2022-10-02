@@ -19,7 +19,7 @@
     {% load static %}
   <link rel="icon" href=" {% static 'unet/assets/ico/ppd2.png' %}">
 
-  <title>CBSD Score Analysis</title>
+  <title>DIGI Eye Project</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -67,7 +67,7 @@
             <a class="navbar-brand" href="#">
               <span class="fa-stack fa-lg">
                   {% load static %}
-                <img src="{% static 'unet/assets/img/mcrops_logo.png' %}" alt="mcrops logo" height="50" width="100">
+                <img src="{% static 'unet/assets/img/digi-eye.png' %}" alt="digi logo" height="50" width="100">
               </span>
             </a>
           </div>
@@ -90,8 +90,12 @@
       <!-- Begin page content -->
       <div class="container">
        <div class="page-header">
-        <h1>Upload images</h1>
-        <h3>Get test images <a href="https://drive.google.com/drive/folders/1J9zNtzcmOOD8Yf6lP6vJtrxnyzP2xjcW?usp=sharing">here</a></h3>
+        <h1>COLOR CLASSIFIER: 3 Roots</h1>
+        <h4>This tool bases on a linear regression color model and RGB score to predict the color value of a three root cooked cross-section sample</h4>
+        <br>
+        <br>
+        <h1>Upload images of 3 root samples</h1>
+        <!-- <h3>Get test images <a href="https://drive.google.com/drive/folders/1J9zNtzcmOOD8Yf6lP6vJtrxnyzP2xjcW?usp=sharing">here</a></h3> -->
       </div>
       <div class='row'>
        <div class="col-md-10">
@@ -116,8 +120,8 @@
 
           <div class='page-header'> Results </div>
 
-          <p><a href="#">Download scored images <span class="badge"></span></a></p>
-         <p><a href="{% url 'pattern:download_csv' %}">Download CSV file <span class="badge"></span></a></p>
+          <!-- <p><a href="#">Download scored images <span class="badge"></span></a></p> -->
+         <p><a href="{% url 'pattern:download_csv' %}">Download Results CSV <span class="badge"></span></a></p>
 
 
         </div>
@@ -130,7 +134,7 @@
       <div class="container">
         <center>
           <p>Please mail comments to <a href="mailto:tusubirafrancisjeremy@gmail.com">Jeremy</a></p>
-         <p>Copyright &copy; 2022 <a href="http://www.mcrops.org/">mCROPS Project</a> - Necrosis Pattern Analysis Web Application.</p>
+         <p>Copyright &copy; 2022  - Sweet Potato Analysis Web Application.</p>
        </center>
      </div>
    </footer>
@@ -160,9 +164,9 @@ $("#images").fileinput({
         uploadUrl:"{% url 'pattern:upload' %}", // url that handles the uploads
         uploadAsync: true,
         uploadExtraData:{csrfmiddlewaretoken:tok},
-        allowedFileExtensions : ['jpg', 'png','gif', 'JPG', 'PNG','JPEG'],
+        allowedFileExtensions : ['jpg', 'png','gif', 'JPG', 'PNG','JPEG','tif'],
         overwriteInitial: false,
-        maxFileSize: 10000,
+        maxFileSize: 100000,
         maxFileCount: 1000,
         initialPreview: [],
         allowedFileTypes: ['image'],
