@@ -15,25 +15,31 @@ from tensorflow.keras.applications import ResNet50, VGG19, EfficientNetB5
 from tensorflow.keras.utils import load_img #For tf >= 2.9
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import csv
+import torch
+from .utilities import remove_background, resize_image
 
 # os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
 # Create your views here.
 
 
 def index(request):
     return render(request, "pattern/index.html", {})
 
+
 def home(request):
     return render(request, "pattern/landing.html", {})
-
 
 
 def rgb_page(request):
     return render(request, "pattern/sample_index.html", {})
 
+
 def mealiness_page(request):
     return render(request, "pattern/mealiness_index.html", {})
+
 
 def upload_images(request):
     fname = os.path.join('media/pattern_csv/', request.get_host()+".csv")
@@ -246,12 +252,11 @@ def upload_sample(request):
     return HttpResponse(json.dumps(resu))
 
 
-
 def predict_mealiness(request):
     fname = os.path.join('media/pattern_csv/', request.get_host()+".csv")
     with open(fname, "w", newline="\n") as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(["Image Name", "Prediction type","Root Score", "Date"])
+        csvwriter.writerow(["Image Name", "Prediction type", "Root Score", "Date"])
     if request.method == 'POST':
         # noinspection PyPep8Naming
         initialPreview = []
@@ -259,7 +264,8 @@ def predict_mealiness(request):
         initialPreviewConfig = []
 
         # Path to trained model
-        model_file = BASE_DIR+'/models/log_reg.pickle'
+        # model_file = BASE_DIR+'/models/log_reg.pickle'
+        model_file = BASE_DIR + '/models/gb.pickle'
 
 
         # Load mealiness prediction model
@@ -276,8 +282,10 @@ def predict_mealiness(request):
                 the image input shape to the feature extractor.
                 It returns a numpy array of extracted features.
             """
-            image = load_img(img_path, target_size=tgt_size) # Default target size assumes VGG19 input. Edit as required.
-            image = img_to_array(image)
+            # image = load_img(img_path, target_size=tgt_size) # Default target size assumes VGG19 input. Edit as required.
+            # image = img_to_array(image)
+            image = remove_background(img_path)
+            image = resize_image(image)
             image = np.expand_dims(image, axis=0)
             features = backbone.predict(image) # Extract features using backbone
             return features.flatten().reshape(1, -1) # Reshape to prepare input for model
@@ -309,17 +317,6 @@ def predict_mealiness(request):
 
             # Image shape
             img_shape = (224,224)
-
-
-
-
-
-
-            # This section runs the code
-
-
-
-
 
 
             # Get features for a single image

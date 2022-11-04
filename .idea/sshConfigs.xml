@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="167.172.33.116" id="e95404b8-e101-4bb5-9627-56ab57ed6632" keyPath="C:\Users\fjtus\Documents\Mobaxterm\home\.ssh\mal" port="22" nameFormat="DESCRIPTIVE" username="mal" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

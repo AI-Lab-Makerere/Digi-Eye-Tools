@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5b9f35fb-334e-4c15-b293-92593138aa66" name="test" url="http://167.172.33.116 ">
+        <fileTransfer rootFolder="/home/mal/" accessType="SFTP" host="167.172.33.116" port="22" sshConfigId="e95404b8-e101-4bb5-9627-56ab57ed6632" sshConfig="mal@167.172.33.116:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" showHiddenFiles="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
