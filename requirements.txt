@@ -1,6 +1,7 @@
 absl-py
 asgiref
 astunparse
+backports.entry-points-selectable
 cachetools
 certifi
 charset-normalizer
@@ -12,9 +13,11 @@ google-auth
 google-auth-oauthlib
 google-pasta
 grpcio
+gunicorn
 h5py
 idna
 imageio
+ipython-genutils
 joblib
 keras
 Keras-Preprocessing
@@ -53,11 +56,10 @@ tensorflow-io-gcs-filesystem
 termcolor
 threadpoolctl
 tifffile
-torch
-torchvision
 tqdm
 typing-extensions
 tzdata
 urllib3
 Werkzeug
 wrapt
+webencodings
