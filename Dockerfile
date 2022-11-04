@@ -22,7 +22,7 @@ RUN pip install -r requirements.txt --cache-dir /opt/app/pip_cache
 RUN chown -R www-data:www-data /opt/app
 RUN chmod u+x start-server.sh
 # start server
-EXPOSE 5000
+EXPOSE 50004
 STOPSIGNAL SIGTERM
 CMD ["/opt/app/start-server.sh"]
 

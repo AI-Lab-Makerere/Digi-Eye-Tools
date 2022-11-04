@@ -53,6 +53,7 @@ tensorboard-plugin-wit
 tensorflow
 tensorflow-estimator
 tensorflow-io-gcs-filesystem
+torch
 termcolor
 threadpoolctl
 tifffile
