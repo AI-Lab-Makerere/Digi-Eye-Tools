@@ -264,7 +264,8 @@ def predict_mealiness(request):
         initialPreviewConfig = []
 
         # Path to trained model
-        model_file = BASE_DIR+'/models/log_reg.pickle'
+        # model_file = BASE_DIR+'/models/log_reg.pickle'
+        model_file = BASE_DIR + '/models/gb.pickle'
 
 
         # Load mealiness prediction model
