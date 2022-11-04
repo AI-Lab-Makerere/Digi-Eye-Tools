@@ -40,12 +40,9 @@ def rgb_page(request):
 def mealiness_page(request):
     return render(request, "pattern/mealiness_index.html", {})
 
+# this works on 3 root samples for color prediction
 
 def upload_images(request):
-    fname = os.path.join('media/pattern_csv/', request.get_host()+".csv")
-    with open(fname, "w", newline="\n") as csvfile:
-        csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(["Image Name", "Prediction type","Root Score", "Date"])
     if request.method == 'POST':
         # noinspection PyPep8Naming
         initialPreview = []
@@ -253,10 +250,6 @@ def upload_sample(request):
 
 
 def predict_mealiness(request):
-    fname = os.path.join('media/pattern_csv/', request.get_host()+".csv")
-    with open(fname, "w", newline="\n") as csvfile:
-        csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(["Image Name", "Prediction type", "Root Score", "Date"])
     if request.method == 'POST':
         # noinspection PyPep8Naming
         initialPreview = []
@@ -365,7 +358,7 @@ def download_csv(request):
     try:
         my_file = open(path, "r")
         response = HttpResponse(my_file, content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename= Pattern_analysis_results.csv'
+        response['Content-Disposition'] = 'attachment; filename= DigiEye_analysis_results.csv'
         return response
     except Exception as e:
         print(e)
